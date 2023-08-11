@@ -6,27 +6,28 @@ namespace TTC
 {
     public class SpeedCalculator : MonoBehaviour
     {
-        [SerializeField] private float acceleration;
-        [SerializeField] private float jumpSpeed;
+        [SerializeField] private GameStater _gameStater;
+        [SerializeField] private float _acceleration;
+        [SerializeField] private float _jumpSpeed;
+        private float _speedY;
 
-        private float accelerationRate;
-        [SerializeField] private float speedY;
-
-        public float SpeedY => speedY;
-
-        private void Start()
-        {
-            accelerationRate = 1 / acceleration;
-        }
+        public float SpeedY => _speedY;
 
         private void FixedUpdate()
         {
-            speedY -= acceleration * Time.deltaTime;
+            if (_gameStater.IsInGameplay())
+                _speedY -= _acceleration * Time.deltaTime;
+        }
+
+        public void ResetSpeedY()
+        {
+            _speedY = 0f;
         }
 
         public void OnJump()
         {
-            speedY = jumpSpeed;
+            if (_gameStater.IsInGameplay())
+                _speedY = _jumpSpeed;
         }
     }
 }
