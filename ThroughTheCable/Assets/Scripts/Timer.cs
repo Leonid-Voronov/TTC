@@ -47,6 +47,7 @@ namespace TTC
         }
 
         public void StopTimer() { _stopped = true; }
+        public void ResumeTimer() { _stopped = false; }
     }
 }
 

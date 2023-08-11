@@ -4,6 +4,7 @@ namespace TTC
 {
     public class GameStater : MonoBehaviour
     {
+        [SerializeField] private ScreenChanger screenChanger;
         [SerializeField] private GameObject _gameplayObject;
         [SerializeField] private Transform _playerTransform;
         [SerializeField] private SpeedCalculator _speedCalculator;
@@ -12,6 +13,7 @@ namespace TTC
         private bool _inGameplay;
         public void StartGame()
         {
+            screenChanger.ChangeScreenByIndex(1, 4);
             _playerTransform.localPosition = Vector3.zero;
             _speedCalculator.ResetSpeedY();
             _inGameplay = true;
@@ -25,8 +27,7 @@ namespace TTC
 
             //blur background
             _timer.StopTimer();
-            //Switch from screen4 to screen6
-
+            screenChanger.ChangeScreenByIndex(4, 6);
         }
 
         public bool IsInGameplay() { return _inGameplay; }
