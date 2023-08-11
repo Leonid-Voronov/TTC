@@ -1,17 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class InputReader : MonoBehaviour
+namespace TTC
 {
-    private void Update()
+    public class InputReader : MonoBehaviour
     {
-        foreach(Touch touch in Input.touches)
+        [SerializeField] private SpeedCalculator speedCalculator;
+        private void Update()
         {
-            if (touch.phase == TouchPhase.Began) 
+            foreach (Touch touch in Input.touches)
             {
-                Debug.Log("Input");
+                if (touch.phase == TouchPhase.Began)
+                {
+                    speedCalculator.OnJump();
+                }
             }
         }
     }
 }
+
