@@ -3,3 +3,4 @@
 ThroughTheCable/Library/PackageCache/com.unity.burst@1.8.7/.Runtime/burst-llvm-15.dll filter=lfs diff=lfs merge=lfs -text
 ThroughTheCable/Library/PackageCache/com.unity.burst@1.8.7/.Runtime/hostmac/dsymutil filter=lfs diff=lfs merge=lfs -text
 Cache/com.unity.burst@1.8.7/.Runtime/hostmac/dsymuti filter=lfs diff=lfs merge=lfs -text
+*.apk filter=lfs diff=lfs merge=lfs -text
