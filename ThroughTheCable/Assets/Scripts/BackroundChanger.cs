@@ -10,7 +10,7 @@ namespace TTC
 
         public void ChangeBackground(int screenNumber)
         {
-            if (screenNumber <= 1 || screenNumber > _backgroundSprites.Count - 1) return;
+            if (screenNumber < 1 || screenNumber > _backgroundSprites.Count) return;
             _spriteRenderer.sprite = _backgroundSprites[screenNumber - 1];
         }
     }

@@ -7,10 +7,12 @@ namespace TTC
     public class Mover : MonoBehaviour
     {
         [SerializeField] private SpeedCalculator _speedCalculator;
+        [SerializeField] private GameStater _gameStater;
 
         private void FixedUpdate()
         {
-            transform.localPosition += new Vector3 (0f, _speedCalculator.SpeedY * Time.deltaTime ,0f) ;
+            if (_gameStater.IsInGameplay())
+                transform.localPosition += new Vector3 (0f, _speedCalculator.SpeedY * Time.deltaTime ,0f);
         }
     }
 }

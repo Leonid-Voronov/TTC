@@ -13,7 +13,6 @@ namespace TTC
 
         private void OnEnable()
         {
-            _timer = 0;
             _stopped = false;
         }
 
@@ -45,6 +44,7 @@ namespace TTC
             else
                 return text;
         }
+        public void ResetTimer() { _timer = 0; }
 
         public void StopTimer() { _stopped = true; }
         public void ResumeTimer() { _stopped = false; }
